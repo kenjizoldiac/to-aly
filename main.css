@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Delicious Handrawn', cursive;
+}
+
+#envelope .envelope-header-shadow 
+{
+    filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.3 ));
+}
+
+#envelope .envelope-header 
+{
+    position: absolute;
+    background-color: #faa1b6; 
+    display: flex;
+    justify-content: center;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    align-items: end;
+    width: 100%;
+    height: 300px;   
+    top: 0;
+    z-index: 999;
+}
+
+#envelope .envelope-header.open-header 
+{
+    transform: translateY(-110%);
+    transition-duration: 1s;
+}
+
+#envelope .envelope-header .heart-img
+{
+    width: 100%;
+    max-width: 80px;
+    margin-bottom: 10px;
+}
+
+#envelope .envelope-body .letter 
+{
+    position: absolute;
+    background-image: url("assets/image/texture-old-paper-bg.jpg");    
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+    width: 100%;
+    height: auto;
+    top: 0;
+    z-index: -999;
+    overflow-x: hidden;
+}
+
+#envelope .envelope-body .letter .letter-container 
+{
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+#envelope .envelope-body .letter  .letter-container .letter-content .to,
+#envelope .envelope-body .letter  .letter-container .letter-content .from
+{
+    font-size: 35px;
+}
+
+#envelope .envelope-body .letter  .letter-container .letter-content .message
+{
+    font-size: 30px;
+    text-align: justify;
+    line-height: 40px;
+}
+
+#envelope .envelope-body .letter  .letter-container .letter-content .feather-img
+{
+    position: absolute;
+    height: auto;
+    width: 180px;
+    animation: moving_feather 2s ease-in-out infinite;
+}
+
+@keyframes moving_feather {
+    0% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(10deg);
+    }
+}
+#envelope .envelope-body .envelope-body-overlay 
+{
+    position: absolute;
+    background-color: #faa1b6;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    clip-path: polygon(50% 15%, 100% 0, 100% 100%, 0 100%, 0 0);
+    z-index: -1;
+}
+
+.envelope-body-overlay.open-envelope-body-overlay {
+    opacity: 0;
+    transition-duration: 1s;
+}
+
+.envelope-body-overlay #open-btn
+{
+    font-size: 20px;
+    color: #d92518;
+    border-radius: 20px;
+    padding: 8px 25px;
+    margin-bottom: 100px;
+    background-color: #fff;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    cursor: pointer;
+}
+
+#audio:not([controls])
+{
+    display: none;
+}
+
+@media screen and (max-width: 576px)
+{
+    #envelope .envelope-header 
+    {
+        height: 150px;
+        clip-path: polygon(0 0, 50% 100%, 100% 0);
+    }
+
+    
+    #envelope .envelope-header .heart-img
+    {
+        width: 100%;
+        max-width: 40px;
+        margin-bottom: 10px;
+    }
+
+    #envelope .envelope-body .letter  .letter-container .letter-content .to,
+    #envelope .envelope-body .letter  .letter-container .letter-content .from
+    {
+        font-size: 30px;
+    }
+
+    #envelope .envelope-body .letter  .letter-container .letter-content .message
+    {
+        font-size: 25px;
+    }
+}
